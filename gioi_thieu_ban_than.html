@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyễn Minh Kiên | Sinh viên An toàn thông tin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#06182F; --navy:#0B2A52; --blue:#1D6FE8; --cyan:#38BDF8; --ice:#EAF3FF;
+  --bg:#F4F8FD; --white:#fff; --ink:#14233A; --muted:#58698199; --muted2:#586981; --line:#D8E5F6;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(6,24,47,.92);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+nav b{color:#fff;font-weight:600;white-space:nowrap}
+nav ul{display:flex;gap:20px;list-style:none;overflow-x:auto;scrollbar-width:none}
+nav a{color:#9FC3F0;text-decoration:none;font-size:.9rem;white-space:nowrap}
+nav a:hover{color:#fff}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;color:#fff;padding:84px 0 96px;
+  background:
+   radial-gradient(900px 420px at 85% -10%,rgba(56,189,248,.35),transparent 60%),
+   radial-gradient(700px 400px at 0% 110%,rgba(29,111,232,.45),transparent 60%),
+   var(--night)}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:44px 44px;mask-image:linear-gradient(to bottom,#000 30%,transparent 95%);-webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 95%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+.hero .role{margin:20px 0 32px;font-size:1.12rem;color:#B9D5F7;max-width:30em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--cyan);color:var(--night)}
+.btn.main:hover{background:#7CD3FA}
+.btn.line{border:1.5px solid #4C7DB8;color:#fff}
+.btn.line:hover{background:rgba(255,255,255,.08)}
+
+/* Terminal: điểm nhấn duy nhất của trang */
+.term{background:#030D1B;border:1px solid #1B3B66;border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden;font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:.88rem}
+.term .bar{display:flex;gap:7px;padding:12px 16px;background:#0A1E3A}
+.term .bar i{width:11px;height:11px;border-radius:50%;background:#2A4E80}
+.term .body{padding:20px 22px 24px;color:#CFE3FB;min-height:230px}
+.term p{margin-bottom:10px;opacity:0;animation:show .01s forwards}
+.term .c{color:var(--cyan)}
+.term .o{color:#fff}
+.term .cur{display:inline-block;width:8px;height:1em;background:var(--cyan);vertical-align:-2px;animation:blink 1s steps(2) infinite}
+.term p:nth-child(1){animation-delay:.3s}.term p:nth-child(2){animation-delay:.9s}
+.term p:nth-child(3){animation-delay:1.5s}.term p:nth-child(4){animation-delay:2.1s}
+.term p:nth-child(5){animation-delay:2.7s}
+@keyframes show{to{opacity:1}}
+@keyframes blink{50%{opacity:0}}
+
+/* Sections */
+section{padding:72px 0}
+section.alt{background:var(--white)}
+h2{font-size:1.9rem;line-height:1.25;color:var(--night);letter-spacing:-.01em;margin-bottom:10px}
+.sub{color:var(--muted2);max-width:38em;margin-bottom:34px}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fact{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.fact small{display:block;color:var(--muted2);font-size:.82rem}
+.fact b{color:var(--navy);font-weight:600;word-break:break-word}
+
+.timeline{position:relative;display:grid;gap:26px;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--blue),var(--line))}
+.timeline article{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+.timeline article::before{content:"";position:absolute;left:-32px;top:26px;width:16px;height:16px;border-radius:50%;background:var(--blue);border:4px solid var(--white);box-shadow:0 0 0 2px var(--blue)}
+.timeline time{color:var(--blue);font-weight:600;font-size:.9rem}
+.timeline h3{color:var(--night);font-size:1.15rem}
+.timeline p{color:var(--muted2)}
+
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{background:var(--ice);color:var(--navy);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:500}
+
+.checks{list-style:none;display:grid;gap:14px}
+.checks.two{grid-template-columns:repeat(2,1fr)}
+.checks li{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+section.alt .checks li{background:var(--bg)}
+.checks svg{flex:none;width:26px;height:26px;margin-top:2px;padding:5px;border-radius:50%;background:var(--blue);stroke:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{color:var(--night);margin-bottom:4px}
+.card p{color:var(--muted2)}
+
+.contact{background:var(--night);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.28),transparent 70%)}
+.contact .wrap{position:relative}
+.contact h2{color:#fff}
+.contact p{color:#B9D5F7;max-width:36em;margin-bottom:26px}
+.contact .mail{margin-top:22px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.9rem;color:#9FC3F0;word-break:break-all}
+
+footer{background:#030D1B;color:#7D9CC4;text-align:center;padding:22px;font-size:.88rem}
+
+@media(max-width:820px){
+  .hero{padding:52px 0 64px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .checks.two,.cards{grid-template-columns:1fr}
+  section{padding:54px 0}
+  nav b{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .term p{animation:none;opacity:1}.term .cur{animation:none}.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <b>Minh Kiên</b>
+    <ul>
+      <li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#hoc-van">Học vấn</a></li>
+      <li><a href="#chuyen-mon">Chuyên môn</a></li>
+      <li><a href="#kinh-nghiem">Kinh nghiệm</a></li>
+      <li><a href="#so-thich">Sở thích</a></li>
+      <li><a href="#thanh-tich">Thành tích</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Nguyễn Minh Kiên</h1>
+      <p class="role">Sinh viên ngành An toàn thông tin, Đại học Cần Thơ. Mình học cách bảo vệ tài khoản, dữ liệu và hệ thống trước các nguy cơ trên mạng.</p>
+      <div class="btns">
+        <a class="btn main" href="#lien-he">Liên hệ với mình</a>
+        <a class="btn line" href="https://github.com/GH-Courses/26-27hk1-ct005d05-labs-kienb2605428-bit" target="_blank" rel="noopener">Xem GitHub</a>
+      </div>
+    </div>
+    <div class="term" aria-label="Giới thiệu nhanh dạng dòng lệnh">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="body">
+        <p><span class="c">$</span> <span class="o">whoami</span><br>Nguyễn Minh Kiên</p>
+        <p><span class="c">$</span> <span class="o">cat truong.txt</span><br>Đại học Cần Thơ, 2026-2031</p>
+        <p><span class="c">$</span> <span class="o">cat nganh.txt</span><br>An toàn thông tin</p>
+        <p><span class="c">$</span> <span class="o">ls so_thich/</span><br>kham_pha/&nbsp; nghe_nhac/</p>
+        <p><span class="c">$</span> <span class="cur"></span></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="gioi-thieu">
+  <div class="wrap">
+    <h2>Giới thiệu</h2>
+    <p class="sub">Xin chào, mình là Kiên, sinh viên năm nhất đến từ Đồng Tháp. Mình thích khám phá điều mới và luôn muốn học hỏi để tiến bộ mỗi ngày.</p>
+    <div class="facts">
+      <div class="fact"><small>Họ tên</small><b>Nguyễn Minh Kiên</b></div>
+      <div class="fact"><small>Ngày sinh</small><b>07/11/2008</b></div>
+      <div class="fact"><small>Địa chỉ</small><b>Đồng Tháp</b></div>
+      <div class="fact"><small>Đang học</small><b>ĐH Cần Thơ</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="hoc-van" class="alt">
+  <div class="wrap">
+    <h2>Quá trình học</h2>
+    <p class="sub">Từ phổ thông đến đại học, mình đi theo hướng công nghệ thông tin.</p>
+    <div class="timeline">
+      <article>
+        <time>2026 – 2031</time>
+        <h3>Đại học Cần Thơ</h3>
+        <p>Ngành An toàn thông tin. Hiện là sinh viên năm nhất.</p>
+      </article>
+      <article>
+        <time>Trước 2026</time>
+        <h3>Trường THPT Thống Linh</h3>
+        <p>Hoàn thành bậc trung học phổ thông.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="chuyen-mon">
+  <div class="wrap">
+    <h2>Lĩnh vực chuyên môn</h2>
+    <p class="sub">Mình đang xây nền tảng trong lĩnh vực An toàn thông tin: bảo vệ hệ thống, mạng và dữ liệu trước các nguy cơ tấn công.</p>
+    <div class="tags">
+      <span>An toàn thông tin</span>
+      <span>Bảo mật tài khoản</span>
+      <span>Nhận biết lừa đảo trực tuyến</span>
+      <span>Tự học</span>
+    </div>
+  </div>
+</section>
+
+<section id="kinh-nghiem" class="alt">
+  <div class="wrap">
+    <h2>Kinh nghiệm</h2>
+    <p class="sub">Những điều mình đã học và đã làm trong quá trình học tập.</p>
+    <ul class="checks two">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Đã tìm hiểu những kiến thức cơ bản về bảo mật tài khoản và thông tin cá nhân.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Biết một số cách phòng tránh các đường link, tin nhắn và trang web đáng ngờ.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Có kinh nghiệm sử dụng máy tính và Internet phục vụ học tập.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Từng làm một số bài tập nhóm có liên quan đến công nghệ và bảo mật thông tin.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="so-thich">
+  <div class="wrap">
+    <h2>Sở thích</h2>
+    <p class="sub">Những việc giúp mình nạp lại năng lượng.</p>
+    <div class="cards">
+      <div class="card"><h3>Khám phá</h3><p>Thích đi đến những nơi mới và tìm hiểu những điều chưa biết.</p></div>
+      <div class="card"><h3>Nghe nhạc</h3><p>Âm nhạc là cách mình thư giãn sau những giờ học.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="thanh-tich" class="alt">
+  <div class="wrap">
+    <h2>Thành tích cá nhân</h2>
+    <p class="sub">Những kết quả mình đạt được cho đến hiện tại.</p>
+    <ul class="checks">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Có kết quả khá trong môn Tin học.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Hoàn thành tốt các bài tập liên quan.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg><span>Có tinh thần tự học và tìm hiểu về an toàn thông tin.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="lien-he" class="contact">
+  <div class="wrap">
+    <h2>Liên hệ</h2>
+    <p>Bạn muốn trao đổi, kết nối hoặc góp ý cho mình? Cứ gửi email hoặc ghé GitHub của mình nhé.</p>
+    <div class="btns">
+      <a class="btn main" href="mailto:kienB2605428@student.ctu.edu.vn">Gửi email</a>
+      <a class="btn line" href="https://github.com/GH-Courses/26-27hk1-ct005d05-labs-kienb2605428-bit" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="mail">kienB2605428@student.ctu.edu.vn</p>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Nguyễn Minh Kiên. Sinh viên Đại học Cần Thơ.</footer>
+
+</body>
+</html>
